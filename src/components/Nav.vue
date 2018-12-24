@@ -1,8 +1,11 @@
 <template>
   <div class="navigation">
-      <div v-for="(item, index) in navItems" :key="index">
-          <h2>{{ navItems[index] }}<span>&nbsp;+&nbsp;</span></h2>
-      </div>
+    <div v-for="(item, index) in navItems" :key="index" class="navigation--accordion-card">
+      <h2>
+        {{ navItems[index] }}
+        <i class="fa fa-plus navigation--accordion-card--icon" @click="toggle"></i>
+      </h2>
+    </div>
   </div>
 </template>
 
@@ -11,7 +14,13 @@ export default {
   data() {
     return {
       navItems: ['Projects', 'Resume', 'Contact'],
+      isOpen: false,
     }
+  },
+  methods: {
+    toggle() {
+      this.isOpen = !this.isOpen
+    },
   },
 }
 </script>
@@ -27,6 +36,27 @@ export default {
 
   h2 {
     @include setLargeFontSize(40px);
+  }
+
+  &--accordion-card {
+    &--icon {
+      padding: 10px;
+      @include setLargeFontSize(30px);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &--is-closed {
+      max-height: 0;
+    }
+
+    &--is-open {
+      i {
+        transform: rotate(90deg);
+      }
+    }
   }
 }
 </style>
