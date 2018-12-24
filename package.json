@@ -42,6 +42,12 @@
       "autoprefixer": {}
     }
   },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabs": true,
+    "semi": false,
+    "singleQuote": true
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
