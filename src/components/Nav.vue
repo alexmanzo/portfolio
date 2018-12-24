@@ -20,14 +20,13 @@ export default {
 @import 'main.scss';
 
 .navigation {
-    width: 50%;
-    padding-top: 30vh;
-    text-align: center;
-    margin-right: 10vw;
+  width: 50%;
+  padding-top: 30vh;
+  text-align: center;
+  margin-right: 10vw;
 
-    h2 {
-        @include setLargeFontSize(40px);
-    }
+  h2 {
+    @include setLargeFontSize(40px);
+  }
 }
-
 </style>

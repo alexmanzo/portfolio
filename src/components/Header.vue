@@ -30,7 +30,7 @@ export default {
 @import 'main.scss';
 
 header {
-    width: 50%;
+  width: 50%;
 }
 
 .personal-info {
