@@ -1,18 +1,18 @@
 <template>
-  <header>
-    <div class="personal-info">
+  <div class="personal-info">
+    <div class="personal-info--name">
       <h1>
-        <span class="personal-info--first-name">{{ firstName }}</span>
+        <span class="personal-info--name--first">{{ firstName }}</span>
         <br>
-        <span class="personal-info--last-name">{{ lastName }}</span>
+        <span class="personal-info--name--last">{{ lastName }}</span>
       </h1>
-      <div class="personal-info--bio">
-        <p>Hi! Thanks for stopping by.</p>
-        <p>I'm a recovering sports video producer turned web developer.</p>
-        <p>Feel free to check out some of my projects and get in touch!</p>
-      </div>
     </div>
-  </header>
+    <div class="personal-info--bio">
+      <p>Hi! Thanks for stopping by.</p>
+      <p>I'm a recovering sports video producer turned web developer.</p>
+      <p>Feel free to check out some of my projects and get in touch!</p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -28,35 +28,33 @@ export default {
 
 <style scoped lang="scss">
 @import 'main.scss';
-
-header {
-  width: 50%;
-}
-
 .personal-info {
+  width: 50vw;
   margin-left: 3vw;
-  padding-top: 25vh;
 
   h1 {
     text-transform: uppercase;
     margin: 0;
   }
 
-  &--first-name {
-    color: $green;
-    @include setLargeFontSize(235px);
-    line-height: 50%;
-    padding-left: 15px;
-  }
+  &--name {
+    text-align: center;
 
-  &--last-name {
-    color: black;
-    @include setLargeFontSize(165px);
-    line-height: 75%;
+    &--first {
+      color: $green;
+      font-size: 19vw;
+      line-height: 50%;
+    }
+
+    &--last {
+      color: black;
+      font-size: 13vw;
+      line-height: 75%;
+    }
   }
 
   &--bio {
-    @include setFontSize(20px);
+    font-size: 1.5vw;
     margin-top: 2vh;
     text-align: left;
     padding-left: 15px;

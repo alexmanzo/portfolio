@@ -1,11 +1,16 @@
 <template>
   <div class="navigation">
-    <div v-for="(item, index) in navItems" :key="index" class="navigation--accordion-card">
-      <h2>
-        {{ navItems[index] }}
-        <i class="fa fa-plus navigation--accordion-card--icon" @click="toggle"></i>
+    <div class="navigation--accordion-card">
+      <h2 class="navigation--accordion-card--header">
+        Projects
+        <i class="fa navigation--accordion-card--icon" :class="iconOpen" @click="toggle()"></i>
       </h2>
+      <div class="navigation--accordion-card--content" :class="subMenu">
+        <h3 v-for="project in projects" :key="project.name">{{ project.name }}</h3>
+      </div>
     </div>
+    <h2>Resume</h2>
+    <h2>Contact</h2>
   </div>
 </template>
 
@@ -13,9 +18,33 @@
 export default {
   data() {
     return {
-      navItems: ['Projects', 'Resume', 'Contact'],
       isOpen: false,
+      projects: [
+        {
+          name: 'Movie Search Vue',
+        },
+        {
+          name: 'Movie Search React',
+        },
+        {
+          name: 'Crew Scheduler',
+        },
+      ],
     }
+  },
+  computed: {
+    iconOpen() {
+      return {
+        'fa-minus': this.isOpen === true,
+        'fa-plus': this.isOpen === false,
+        open: this.isOpen === true,
+      }
+    },
+    subMenu() {
+      return {
+        'navigation--accordion-card--content--open': this.isOpen === true,
+      }
+    },
   },
   methods: {
     toggle() {
@@ -29,32 +58,52 @@ export default {
 @import 'main.scss';
 
 .navigation {
-  width: 50%;
-  padding-top: 30vh;
-  text-align: center;
-  margin-right: 10vw;
+  width: 50vw;
+  margin-top: 2vw;
+  padding-left: 15vw;
+  text-align: left;
 
   h2 {
-    @include setLargeFontSize(40px);
+    font-size: 3.5vw;
+    margin-top: 0;
   }
 
   &--accordion-card {
-    &--icon {
-      padding: 10px;
-      @include setLargeFontSize(30px);
+    .open {
+      transform: rotate(0deg);
+    }
 
-      &:hover {
-        cursor: pointer;
+    &--header {
+      margin-bottom: 0;
+    }
+
+    &--content {
+      margin-left: 2vw;
+      padding-left: 1vw;
+      border-left: 2px solid $gray;
+      max-height: 0;
+      opacity: 0;
+      transition: all 500ms;
+
+      h3 {
+        font-size: 2vw;
+      }
+
+      &--open {
+        max-height: 75vh;
+        opacity: 1;
+        transition: all 1s;
       }
     }
 
-    &--is-closed {
-      max-height: 0;
-    }
+    &--icon {
+      padding: 10px;
+      font-size: 2.75vw;
+      transform: rotate(90deg);
+      transition: all 200ms ease;
 
-    &--is-open {
-      i {
-        transform: rotate(90deg);
+      &:hover {
+        cursor: pointer;
       }
     }
   }
