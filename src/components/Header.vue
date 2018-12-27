@@ -1,10 +1,10 @@
 <template>
-  <div class="personal-info">
-    <div class="personal-info--name">
+  <div :class="isHome">
+    <div class="personal-info">
       <h1>
-        <span class="personal-info--name--first">{{ firstName }}</span>
+        <span class="personal-info--first">{{ firstName }}</span>
         <br>
-        <span class="personal-info--name--last">{{ lastName }}</span>
+        <span class="personal-info--last">{{ lastName }}</span>
       </h1>
     </div>
     <div class="personal-info--bio">
@@ -23,34 +23,33 @@ export default {
       lastName: 'Manzo',
     }
   },
+  computed: {
+    isHome() {
+      return {
+        home: this.$route.path === '/',
+        subpage: this.$route.path != '/',
+      }
+    },
+  },
 }
 </script>
 
 <style scoped lang="scss">
 @import 'main.scss';
-.personal-info {
-  width: 50vw;
-  margin-left: 3vw;
 
-  h1 {
-    text-transform: uppercase;
-    margin: 0;
+h1 {
+  text-transform: uppercase;
+  margin: 0;
+}
+// ----- Shared Styles ----- //
+.personal-info {
+  &--first {
+    color: $green;
+    line-height: 50%;
   }
 
-  &--name {
-    text-align: center;
-
-    &--first {
-      color: $green;
-      font-size: 19vw;
-      line-height: 50%;
-    }
-
-    &--last {
-      color: black;
-      font-size: 13vw;
-      line-height: 75%;
-    }
+  &--last {
+    line-height: 75%;
   }
 
   &--bio {
@@ -59,6 +58,93 @@ export default {
     text-align: left;
     padding-left: 15px;
     font-weight: 400;
+  }
+}
+
+// ----- Home Styling ----- //
+.home {
+  width: 40vw;
+  padding-left: 8vw;
+
+  .personal-info {
+    &--first {
+      font-size: 15vw;
+      padding-left: 1vw;
+    }
+
+    &--last {
+      font-size: 10.5vw;
+    }
+  }
+}
+
+// ----- Subpage Styling ----- //
+.subpage {
+  width: 30vw;
+  padding: 5vh 0 0 15vw;
+
+  .personal-info {
+    &--first {
+      font-size: 6vw;
+    }
+
+    &--last {
+      font-size: 4vw;
+    }
+
+    &--bio {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $medium) {
+  .home {
+    text-align: center;
+    padding: 0 0 0 4vw;
+    width: 90vw;
+
+    .personal-info {
+      &--first {
+        font-size: 30vw;
+        padding-right: 1vw;
+      }
+
+      &--last {
+        font-size: 21vw;
+      }
+
+      &--bio {
+        font-size: 4vw;
+        text-align: center;
+        margin-top: 3vh;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .subpage {
+    text-align: center;
+    padding: 0 0 0 3vw;
+    width: 90vw;
+
+    .personal-info {
+      &--first {
+        font-size: 30vw;
+        padding-right: 1vw;
+      }
+
+      &--last {
+        font-size: 21vw;
+      }
+
+      &--bio {
+        font-size: 4vw;
+        text-align: center;
+        margin-top: 3vh;
+        font-weight: 400;
+      }
+    }
   }
 }
 </style>
