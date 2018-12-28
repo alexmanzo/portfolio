@@ -142,6 +142,8 @@ h2 {
     padding-top: 7vh;
     text-align: center;
     display: inline-flex;
+    background-color: rgba($color: #fff, $alpha: 1);
+    box-shadow: 2px 2px 40px 40px #fff;
 
     h2 {
       font-size: 2.25vw;
@@ -151,9 +153,8 @@ h2 {
     &--accordion-card {
       text-align: left;
       margin-right: -9vw;
-      
 
-      &--header { 
+      &--header {
         margin-bottom: 0;
         padding-right: 0 !important;
       }
@@ -164,9 +165,11 @@ h2 {
         }
 
         &--open {
-          max-height: 75vh;
+          max-height: 100vh;
           opacity: 1;
-          transition: all 1s;
+          margin-top: 2vh;
+          padding-bottom: 5vh;
+          padding-top: 5vh;
         }
       }
 
@@ -199,7 +202,6 @@ h2 {
         border-left: 2px solid $gray;
         max-height: 0;
         opacity: 0;
-        transition: all 500ms;
 
         h3 {
           font-size: 2vw;
@@ -208,7 +210,6 @@ h2 {
         &--open {
           max-height: 75vh;
           opacity: 1;
-          transition: all 1s;
         }
       }
 
@@ -261,6 +262,7 @@ h2 {
       padding-top: 3vh;
       margin-left: 7vw;
       display: inline-flex;
+      box-shadow: 2px 2px 10px 10px #fff;
 
       h2 {
         font-size: 5vw;
@@ -280,6 +282,13 @@ h2 {
 
           h3 {
             font-size: 3vw;
+          }
+
+          &--open {
+            max-height: 100vh;
+            margin-top: 1vh;
+            padding-bottom: 3vh;
+            padding-top: 3vh;
           }
         }
 

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Contact from '@/views/Contact.vue'
+import ContactPage from '@/views/ContactPage.vue'
 import Home from '@/views/Home.vue'
-import Resume from '@/views/Resume.vue'
+import ResumePage from '@/views/ResumePage.vue'
 
 Vue.use(Router)
 
@@ -18,12 +18,12 @@ export default new Router({
     {
       path: '/resume',
       name: 'resume',
-      component: Resume,
+      component: ResumePage,
     },
     {
       path: '/contact',
       name: 'contact',
-      component: Contact,
+      component: ContactPage,
     },
   ],
 })

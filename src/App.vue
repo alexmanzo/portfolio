@@ -17,21 +17,24 @@ export default {
 
 <style lang="scss">
 @import 'main.scss';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  position: relative;
 }
 
-#home,
-#resume {
+#resume header,
+#contact header {
   display: -webkit-box;
-  justify-content: flex-start;
+  position: absolute;
 }
 
 #home {
   padding-top: 20vh;
+  display: -webkit-box;
 }
 
 a {
@@ -48,7 +51,8 @@ a:active {
 
 @media screen and (max-width: $medium) {
   #home,
-  #resume {
+  #resume header,
+  #contact header {
     padding-top: 5vh;
     display: block;
     width: 100%;
