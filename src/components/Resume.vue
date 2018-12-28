@@ -7,12 +7,14 @@
           <span class="resume--section--skills--header">
             <h2>{{ skill.header }}</h2>
           </span>
-          <ul>
-            <li v-for="item in skill.items" :key="item.name">
-              <i :class="item.class"></i>
-              <p>{{ item.name }}</p>
-            </li>
-          </ul>
+          <span class="resume--section--skills--icons">
+            <ul>
+              <li v-for="item in skill.items" :key="item.name">
+                <i :class="item.class"></i>
+                <p>{{ item.name }}</p>
+              </li>
+            </ul>
+          </span>
         </div>
       </div>
       <div v-else-if="section.header === 'Work Experience'">
@@ -225,32 +227,35 @@ export default {
     }
 
     &--skills {
-    position: relative;
-    mix-blend-mode: multiply;
-      ul {
-        padding: 0;
-        text-align: center;
-        color: rgba($color: $green, $alpha: 1);
-      }
-      li {
-        list-style: none;
-        display: inline-block;
-        padding: 1vh 3vw;
+      position: relative;
+      mix-blend-mode: multiply;
 
-        i {
-          font-size: 4vw;
+      &--icons {
+        color: $green;
+
+        ul {
+          padding: 0;
+          text-align: center;
+        }
+        li {
+          list-style: none;
+          display: inline-block;
+          padding: 1vh 3vw;
+
+          i {
+            font-size: 4vw;
+          }
         }
       }
-      &--header {
-          position: absolute;
-          color: rgba($color: white, $alpha: 0.5);
-          filter: blur(1px);
-          font-size: 5vw;
-          width: 100%;
-          bottom: -10vh;
-          z-index: -1;
-          
 
+      &--header {
+        position: absolute;
+        color: rgba($color: white, $alpha: 0.7);
+        filter: blur(1px);
+        font-size: 5vw;
+        width: 100%;
+        bottom: -10vh;
+        z-index: -1;
       }
     }
   }
