@@ -4,24 +4,27 @@
       <h1>{{ section.header }}</h1>
       <div v-if="section.header === 'Technical Skills'">
         <div v-for="skill in section.skills" :key="skill.header" class="resume--section--skills">
-          <span class="resume--section--skills--header">
-            <h2>{{ skill.header }}</h2>
-          </span>
-          <span class="resume--section--skills--icons">
-            <ul>
-              <li v-for="item in skill.items" :key="item.name">
-                <i :class="item.class"></i>
-                <p>{{ item.name }}</p>
-              </li>
-            </ul>
-          </span>
+          <h2>{{ skill.header }}</h2>
+          <ul class="resume--section--skills--icons">
+            <li v-for="item in skill.items" :key="item.name">
+              <i :class="item.class"></i>
+              <p>{{ item.name }}</p>
+            </li>
+          </ul>
         </div>
       </div>
       <div v-else-if="section.header === 'Work Experience'">
-        <div v-for="workplace in section.workplaces" :key="workplace.header">
+        <div
+          v-for="workplace in section.workplaces"
+          :key="workplace.header"
+          class="resume--section--work"
+        >
           <h2>{{ workplace.header }}</h2>
-          <h3>{{ workplace.title }}</h3>
-          <h3>{{ workplace.dates }}</h3>
+          <div class="resume--section--work--job-header">
+            <h3>{{ workplace.title }}</h3>
+            <h3 class="resume--section--work--job-header--dates">{{ workplace.dates }}</h3>
+          </div>
+
           <ul>
             <li v-for="duty in workplace.duties" :key="duty">{{ duty }}</li>
           </ul>
@@ -30,8 +33,10 @@
       <div v-else-if="section.header === 'Education'">
         <div v-for="school in section.schools" :key="school.header">
           <h2>{{ school.header }}</h2>
-          <h3>{{ school.degree }}</h3>
-          <h3>{{ school.year }}</h3>
+          <div class="resume--section--school">
+            <h3>{{ school.degree }}</h3>
+            <h3 class="resume--section--school--dates">{{ school.year }}</h3>
+          </div>
         </div>
       </div>
     </div>
@@ -80,7 +85,7 @@ export default {
                 },
                 {
                   name: 'jQuery',
-                  class: '',
+                  class: 'fas fa-code',
                 },
                 {
                   name: 'Node/Express',
@@ -97,11 +102,11 @@ export default {
                 },
                 {
                   name: 'JSON',
-                  class: '',
+                  class: 'fas fa-code',
                 },
                 {
-                  name: 'MongoDB/Mongoose',
-                  class: '',
+                  name: 'MongoDB',
+                  class: 'fas fa-code',
                 },
                 {
                   name: 'JIRA',
@@ -189,12 +194,12 @@ export default {
             },
             {
               header: 'Loyola University Maryland',
-              degree: 'Emerging Media',
+              degree: 'MA, Emerging Media',
               year: 'December 2017',
             },
             {
               header: 'Ball State University',
-              degree: 'Telecommunications - Production',
+              degree: 'BA, Telecommunications - Production',
               year: 'May 2011',
             },
           ],
@@ -209,53 +214,138 @@ export default {
 <style scoped lang="scss">
 @import 'main.scss';
 
+h2 {
+  background-color: $green;
+  color: white;
+  text-align: center;
+  padding: 3px;
+}
+
 .resume {
   padding-top: 20vh;
   width: 85%;
   margin: 0 auto;
+
   h1 {
     text-align: center;
   }
 
   &--section {
-    div:nth-child(odd) {
-      background-color: $gray1;
-    }
-
-    div:nth-child(even) {
-      background-color: $gray2;
-    }
+    width: 80%;
+    margin: 0 auto;
 
     &--skills {
-      position: relative;
-      mix-blend-mode: multiply;
+      margin: 5vh auto;
 
-      &--icons {
+      ul {
+        padding: 3vh 0 0 0;
+        text-align: center;
+        margin-top: 0;
         color: $green;
+      }
+      li {
+        list-style: none;
+        padding: 1vh 3vw;
+        display: inline-block;
 
-        ul {
-          padding: 0;
-          text-align: center;
+        i {
+          font-size: 4vw;
         }
-        li {
-          list-style: none;
-          display: inline-block;
-          padding: 1vh 3vw;
 
+        p {
+          color: black;
+        }
+      }
+    }
+
+    &--work {
+      margin: 5vh auto;
+
+      &--job-header {
+        display: flex;
+        width: 100%;
+
+        &--dates {
+          margin-left: auto;
+        }
+      }
+    }
+
+    &--school {
+      display: flex;
+
+      &--dates {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $medium) {
+  .resume {
+    padding: 45vh 0vw;
+
+    &--section {
+      padding: 0;
+      width: 100%;
+
+      &--skills {
+        li {
           i {
-            font-size: 4vw;
+            font-size: 7vw;
           }
         }
       }
+    }
+  }
+}
 
-      &--header {
-        position: absolute;
-        color: rgba($color: white, $alpha: 0.7);
-        filter: blur(1px);
-        font-size: 5vw;
-        width: 100%;
-        bottom: -10vh;
-        z-index: -1;
+@media screen and (max-width: $small) {
+  .resume {
+    padding: 35vh 0vw;
+
+    &--section {
+      padding: 0;
+      width: 100%;
+
+      &--skills {
+        li {
+          i {
+            font-size: 20vw;
+          }
+        }
+      }
+      &--work {
+        margin: 5vh auto;
+
+        &--job-header {
+          display: initial;
+          text-align: center;
+        }
+      }
+
+      &--school {
+        display: initial;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $x-small) {
+  .resume {
+    padding: 40vh 0vw;
+
+    &--section {
+      padding: 0;
+      width: 100%;
+
+      &--skills {
+        li {
+          i {
+            font-size: 20vw;
+          }
+        }
       }
     }
   }

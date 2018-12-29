@@ -20,7 +20,7 @@ export default {
       contacts: [
         {
           title: 'E-mail Me',
-          class: 'fab fa-github contact--item--icon',
+          class: 'far fa-envelope contact--item--icon',
           path: 'mailto:memanzo17@gmail.com',
         },
         {
@@ -68,7 +68,37 @@ a:hover {
 @media screen and (max-width: $medium) {
   .contact {
     &--item {
-      padding: 35vh 8vw;
+      padding: 55vh 8vw;
+
+      h3 {
+        font-size: 4vw;
+      }
+      &--icon {
+        font-size: 12vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $small) {
+  .contact {
+    &--item {
+      padding: 40vmax 8vw;
+
+      h3 {
+        font-size: 4vw;
+      }
+      &--icon {
+        font-size: 12vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $x-small) {
+  .contact {
+    &--item {
+      padding: 45vmax 8vw;
 
       h3 {
         font-size: 4vw;

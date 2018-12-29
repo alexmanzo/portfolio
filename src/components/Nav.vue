@@ -143,7 +143,6 @@ h2 {
     text-align: center;
     display: inline-flex;
     background-color: rgba($color: #fff, $alpha: 1);
-    box-shadow: 2px 2px 40px 40px #fff;
 
     h2 {
       font-size: 2.25vw;
@@ -168,8 +167,9 @@ h2 {
           max-height: 100vh;
           opacity: 1;
           margin-top: 2vh;
-          padding-bottom: 5vh;
-          padding-top: 5vh;
+          padding-bottom: 2vh;
+          padding-top: 2vh;
+          width: 100%;
         }
       }
 
@@ -230,7 +230,7 @@ h2 {
   .nav-home {
     .navigation {
       padding: 0;
-      width: 90vw;
+      width: 100%;
       text-align: center;
 
       h2 {
@@ -262,7 +262,6 @@ h2 {
       padding-top: 3vh;
       margin-left: 7vw;
       display: inline-flex;
-      box-shadow: 2px 2px 10px 10px #fff;
 
       h2 {
         font-size: 5vw;
