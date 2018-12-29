@@ -39,7 +39,7 @@ export default {
         },
         {
           name: 'Crew Scheduler',
-          path: 'http://crew-scheduler.alexmanzo.me/',
+          path: 'https://fierce-wildwood-43879.herokuapp.com/',
         },
       ],
     }
@@ -169,7 +169,6 @@ h2 {
           margin-top: 2vh;
           padding-bottom: 2vh;
           padding-top: 2vh;
-          width: 100%;
         }
       }
 
