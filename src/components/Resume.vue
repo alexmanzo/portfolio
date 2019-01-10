@@ -137,17 +137,16 @@ export default {
           header: 'Work Experience',
           workplaces: [
             {
-              header: 'Net eSolutions (NETE)',
+              header: 'NETE (Net eSolutions)',
               title: 'Web Developer',
               dates: 'June 2018 - Present',
               duties: [
                 'Maintain web content for large National Institute of Environmental Health Sciences (NIEHS) websites',
-                'Update web content using Precussion Rhythmyx CMS',
-                'Collaborate with web design and back-end development teams',
+                'Update content using Percussion Rhythmyx CMS, editing HTML and page-level CSS',
+                'Collaborate with web design and back-end development teams on large projects',
+                'Ensure 508 compliance for web content',
                 'Create graphics for web and video content using Adobe applications',
-                'Ensure Section 508 compliance for web content',
-                'Lead video workshops for NIEHS communications staff',
-                'Produce webcasts of meetings and scientific lectures',
+                'Assist in performing multimedia duties for contract',
               ],
             },
             {
