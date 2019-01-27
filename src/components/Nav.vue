@@ -30,6 +30,10 @@ export default {
       isOpen: false,
       projects: [
         {
+          name: 'All-Gender Bathroom Finder',
+          path: 'https://bathroom-finder.alexmanzo.me/'
+        },
+        {
           name: 'Movie Search Vue',
           path: 'https://movie-search-vue.alexmanzo.me/',
         },

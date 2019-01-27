@@ -49,6 +49,7 @@ h1 {
   }
 
   &--last {
+    color: black;
     line-height: 75%;
   }
 
