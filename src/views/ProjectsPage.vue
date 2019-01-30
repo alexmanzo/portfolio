@@ -1,5 +1,5 @@
 <template>
-  <div id="projects">
+  <div id="resume">
     <header>
       <router-link :to="{name: 'home'}">
         <app-header></app-header>
