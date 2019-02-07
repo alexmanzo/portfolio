@@ -1,32 +1,13 @@
 <template>
   <div id="projects">
     <project
-      :name="projects[0].name"
-      :imgPath="projects[0].screenshot"
-      :description="projects[0].description"
-      :codePath="projects[0].codePath"
-      :livePath="projects[0].livePath"
-    ></project>
-    <project
-      :name="projects[1].name"
-      :imgPath="projects[1].screenshot"
-      :description="projects[1].description"
-      :codePath="projects[1].codePath"
-      :livePath="projects[1].livePath"
-    ></project>
-    <project
-      :name="projects[2].name"
-      :imgPath="projects[2].screenshot"
-      :description="projects[2].description"
-      :codePath="projects[2].codePath"
-      :livePath="projects[2].livePath"
-    ></project>
-    <project
-      :name="projects[3].name"
-      :imgPath="projects[3].screenshot"
-      :description="projects[3].description"
-      :codePath="projects[3].codePath"
-      :livePath="projects[3].livePath"
+      v-for="project in projects"
+      :key="project.name"
+      :name="project.name"
+      :imgPath="project.screenshot"
+      :description="project.description"
+      :codePath="project.codePath"
+      :livePath="project.livePath"
     ></project>
   </div>
 </template>
@@ -68,11 +49,18 @@ export default {
         {
           name: 'Crew Scheduler',
           description:
-            'In my previous career, I managed a student group of 30-40 students to staff up to 100 live productions of sporting events throughout the year.<br><br>Managing availability and scheduling for several events with an array of needs, I wanted to develop an web application that would make this process easier.<br><br>Crew Scheduler allows as user to create all events for the year, and then have students log in to update their availability. When availability is in, the admin can go through an assign crew to events, and go back and edit as needed.',
+            'Built for a real-world application managing availability and scheduling for live video production events. Crew Scheduler allows as user to create events, update availability, and  assign production crews.',
           codePath: 'https://github.com/alexmanzo/crew-scheduler',
           livePath: 'https://fierce-wildwood-43879.herokuapp.com/',
           screenshot: require('../assets/crew-scheduler.png'),
         },
+        {
+          name: 'Design to Code - Onfo',
+          description:
+            'Self-assigned challenge to pick a web design of Dribbble and translate to code.',
+          livePath: 'https://codepen.io/alexmanzo/pen/wNPqxR',
+          screenshot: require('../assets/onfo-screenshot.png'),
+        }
       ],
     }
   },
@@ -84,11 +72,27 @@ export default {
 @import 'main.scss';
 
 #projects {
-  padding-top: 25vh;
+  padding: 25vh 0 10vh;
   width: 85%;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(3, 50vh);
+  grid-gap: 25px;
   justify-content: center;
+}
+
+@media screen and (max-width: $medium) {
+  #projects {
+    padding: 50vh 0 10vh;
+    grid-template-columns: 90%;
+    grid-template-rows: repeat(5, 65vh);
+  }
+}
+
+@media screen and (max-width: $small) {
+  #projects {
+    padding: 30vh 0 1vh;
+  }
 }
 </style>

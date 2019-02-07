@@ -8,12 +8,12 @@
   >
     <h2 v-html="name">{{ name }}</h2>
     <img :src="imgPath" :alt="name" :class="hoverVisible">
-    <p v-html="description" class="project--description">{{description}}</p>
-    <div class="project--links">
-      <a :href="codePath" target="_blank">
+    <p v-html="description" class="project--description" :class="hoverVisible">{{description}}</p>
+    <div class="project--links" :class="hoverVisible">
+      <a v-if="codePath" :href="codePath" target="_blank">
         <i class="fab fa-github"></i>See the Code
       </a>
-      <a :href="livePath" target="_blank">
+      <a v-if="livePath" :href="livePath" target="_blank">
         <i class="fas fa-laptop-code"></i>See the Demo
       </a>
     </div>
@@ -50,15 +50,8 @@ export default {
 <style lang="scss">
 @import 'main.scss';
 
-.hover {
-  /*background: rgba(0, 0, 0, 0.85);
-  color: white;*/
-  transition: opacity 1s;
-}
-
 img {
   opacity: 1;
-  height: 100%;
   margin: 0;
   position: absolute;
   transition: all 500ms ease;
@@ -70,12 +63,12 @@ img.hover {
 }
 
 .project {
-  width: 40%;
-  margin: 15px;
   border: 5px solid $green;
   position: relative;
   overflow: hidden;
-  transition: all 1s;
+  transition: all 500ms ease;
+  object-fit: cover;
+  max-width: 650px;
 
   h2 {
     background-color: $green;
@@ -86,15 +79,25 @@ img.hover {
     margin-block-end: 0;
   }
 
+  &--description.hover,
+  &--links.hover {
+    opacity: 1;
+  }
+
   &--description {
     padding: 0 40px;
     text-align: justify;
+    opacity: 0;
+    font-size: 20px;
+    transition: all 500ms ease;
   }
 
   &--links {
     display: flex;
     justify-content: center;
     text-align: center;
+    opacity: 0;
+    transition: all 500ms ease;
 
     i {
       font-size: 4vw;
@@ -105,6 +108,50 @@ img.hover {
     a {
       color: $green;
       padding: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: $medium) {
+  .project {
+    &--description {
+      font-size: 24 px;
+    }
+
+    &--links {
+      i {
+        font-size: 10vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $small) {
+  img {
+    display: none;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .project {
+    overflow: auto;
+
+    &--description {
+      font-size: 24px;
+      opacity: 1;
+      font-size: 14px;
+      padding: 0 10px;
+    }
+
+    &--links {
+      flex-direction: column;
+      opacity: 1;
+      i {
+        font-size: 10vw;
+        padding: 0;
+      }
     }
   }
 }

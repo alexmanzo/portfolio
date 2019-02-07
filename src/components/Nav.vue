@@ -1,18 +1,9 @@
 <template>
   <div :class="isHome">
     <div class="navigation">
-      <div class="navigation--accordion-card">
-        <h2 class="navigation--accordion-card--header" @click="toggle()">
-          Projects
-          <i class="fa navigation--accordion-card--icon" :class="iconOpen"></i>
-        </h2>
-        <div class="navigation--accordion-card--content" :class="subMenu">
-          <h3 v-for="project in projects" :key="project.name">
-            <a v-if="isOpen" :href="project.path" target="_blank">{{ project.name }}</a>
-            <span v-else>{{ project.name }}</span>
-          </h3>
-        </div>
-      </div>
+      <router-link :to="{name: 'projects'}">
+        <h2>Projects</h2>
+      </router-link>
       <router-link :to="{name: 'resume'}">
         <h2>Resume</h2>
       </router-link>
@@ -31,7 +22,7 @@ export default {
       projects: [
         {
           name: 'All-Gender Bathroom Finder',
-          path: 'https://bathroom-finder.alexmanzo.me/'
+          path: 'https://bathroom-finder.alexmanzo.me/',
         },
         {
           name: 'Movie Search Vue',
@@ -93,6 +84,7 @@ h2 {
 // ----- Shared Styles ----- //
 .navigation {
   text-align: left;
+  margin-top: 50px;
   &--accordion-card {
     .open {
       transform: rotate(0deg);
@@ -143,7 +135,7 @@ h2 {
 .nav-subpage {
   .navigation {
     width: 60vw;
-    padding-top: 7vh;
+    padding-top: 2vh;
     text-align: center;
     display: inline-flex;
     background-color: rgba($color: #fff, $alpha: 1);
@@ -262,8 +254,8 @@ h2 {
   .nav-subpage {
     .navigation {
       width: 90vw;
-      padding-top: 3vh;
-      margin-left: 7vw;
+      padding-top: 0;
+      margin-left: 15%;
       display: inline-flex;
 
       h2 {
@@ -302,4 +294,5 @@ h2 {
     }
   }
 }
+
 </style>
