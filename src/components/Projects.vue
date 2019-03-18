@@ -57,7 +57,7 @@ export default {
         {
           name: 'Design to Code - Onfo',
           description:
-            'Self-assigned challenge to pick a web design of Dribbble and translate to code.',
+            'Self-assigned challenge to pick a web design from Dribbble and translate to code.',
           livePath: 'https://codepen.io/alexmanzo/pen/wNPqxR',
           screenshot: require('../assets/onfo-screenshot.png'),
         }
