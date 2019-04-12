@@ -21,7 +21,7 @@ export default {
         {
           title: 'E-mail Me',
           class: 'far fa-envelope contact--item--icon',
-          path: 'mailto:memanzo17@gmail.com',
+          path: 'mailto:manzoalex17@gmail.com',
         },
         {
           title: 'Github',

@@ -91,6 +91,10 @@ export default {
                   name: 'Node/Express',
                   class: 'fab fa-node',
                 },
+                {
+                  name: 'Wordpress',
+                  class: 'fab fa-wordpress-simple',
+                },
               ],
             },
             {
@@ -140,13 +144,13 @@ export default {
               header: 'NETE (Net eSolutions)',
               title: 'Web Developer',
               dates: 'June 2018 - Present',
-              duties: [
+              duties: [         
                 'Maintain web content for large National Institute of Environmental Health Sciences (NIEHS) websites',
+                'Provide QA checks for newer members of team',
                 'Update content using Percussion Rhythmyx CMS, editing HTML and page-level CSS',
                 'Collaborate with web design and back-end development teams on large projects',
                 'Ensure 508 compliance for web content',
                 'Create graphics for web and video content using Adobe applications',
-                'Assist in performing multimedia duties for contract',
               ],
             },
             {

@@ -1,7 +1,21 @@
 <template>
   <div :class="isHome">
-    <div class="navigation">
-      <router-link :to="{name: 'projects'}">
+     <div class="navigation">
+      <div v-if="navHome" class="navigation--accordion-card">
+        <h2 class="navigation--accordion-card--header" @click="toggle()">
+         <router-link :to="{name: 'projects'}">
+            Projects
+         </router-link>
+          <i class="fa navigation--accordion-card--icon" :class="iconOpen"></i>
+        </h2>
+        <div class="navigation--accordion-card--content" :class="subMenu">
+          <h3 v-for="project in projects" :key="project.name">
+            <a v-if="isOpen" :href="project.path" target="_blank">{{ project.name }}</a>
+            <span v-else>{{ project.name }}</span>
+          </h3>
+        </div>
+      </div>
+      <router-link v-else :to="{name: 'projects'}">
         <h2>Projects</h2>
       </router-link>
       <router-link :to="{name: 'resume'}">
@@ -19,6 +33,7 @@ export default {
   data() {
     return {
       isOpen: false,
+      navHome: false,
       projects: [
         {
           name: 'All-Gender Bathroom Finder',
@@ -55,7 +70,7 @@ export default {
     isHome() {
       return {
         'nav-home': this.$route.path === '/',
-        'nav-subpage': this.$route.path != '/',
+        'nav-subpage': this.$route.path != '/',  
       }
     },
   },
@@ -63,7 +78,17 @@ export default {
     toggle() {
       this.isOpen = !this.isOpen
     },
+    checkHome() {
+      if (this.$route.path === '/') {
+        this.navHome = true
+      } else {
+        this.navHome = false
+      }
+    }
   },
+  created() {
+    this.checkHome()
+  }
 }
 </script>
 
