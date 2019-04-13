@@ -92,7 +92,7 @@ export default {
 
 @media screen and (max-width: $small) {
   #projects {
-    padding: 30vh 0 1vh;
+    padding: 35vh 0 1vh;
   }
 }
 </style>

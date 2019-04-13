@@ -281,6 +281,7 @@ h2 {
       width: 90vw;
       padding-top: 0;
       margin-left: 15%;
+      margin-top: 5%;
       display: inline-flex;
 
       h2 {
