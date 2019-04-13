@@ -130,8 +130,10 @@ h2 {
       padding-left: 1vw;
       border-left: 2px solid $gray;
       max-height: 0;
+      visibility: hidden;
       opacity: 0;
       transition: all 500ms;
+  
 
       h3 {
         font-size: 2vw;
@@ -141,6 +143,7 @@ h2 {
         max-height: 75vh;
         opacity: 1;
         transition: all 1s;
+        visibility: visible;
       }
     }
 
